@@ -47,6 +47,18 @@ If the file is fragmented, the address will point to file pointer record
 address.
 
 - File name (8 bytes)
-- Start Address (8 bytes)
+- Size (8 bytes)
+- Start address | File pointer record pointer (8 bytes)
 - End address (8 bytes)
 - Reserved (1 byte)
+
+### File pointer record
+File pointer records fragmented file data. It uses single small block record by
+default.
+
+- Pointer record size (2 bytes)
+- Extent blocks (less than 1024 items?)
+  - Start address (8 bytes)
+  - End address (8 bytes)
+  - Size information (2 bytes * N)
+- Next file pointer record pointer (8 bytes)
